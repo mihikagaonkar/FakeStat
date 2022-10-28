@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeStat</title>
+    <link rel="icon" href="./f804f2df02e24c519ea2f41b4038b03d2.png">
+    <link rel="stylesheet" href="{% static '/css/result.css' %}">
+    <script src="https://kit.fontawesome.com/622c95e3fd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <img src= "{% static '/images/logo.png' %}" class="logo">
+
+    <a href="{% url 'home' %}" class="back"><i class="fas fa-chevron-circle-left"></i></a>
+
+    <div class="news_display">
+        <div type="text" class="news" name = "news_input" id='news'>{{ user_news }}</div>
+    </div>
+    {% if random_forest > 0.5 %}
+        <div class="result">Real</div>
+    {% else %}
+        <div class="result">Fake</div>
+    {% endif %}
+
+    <!-- <p class="accuracy">Accuracy</p> -->
+    <div class="container">
+        <div class="gauge_container">
+            <p class="algo">Decision Tree</p>
+            <div class="gauge gauge1">
+                <div class="gauge__body">
+                    <div class="gauge__fill"></div>
+                    <div class="gauge__cover"></div>
+                </div>
+            </div>
+        </div>
+        <div class="gauge_container">
+            <p class="algo">Random Forest</p>
+            <div class="gauge gauge2">
+                <div class="gauge__body">
+                    <div class="gauge__fill"></div>
+                    <div class="gauge__cover"></div>
+                </div>
+            </div>
+        </div>
+        <div class="gauge_container">
+            <p class="algo">Logistic Regression</p>
+            <div class="gauge gauge3">
+                <div class="gauge__body">
+                    <div class="gauge__fill"></div>
+                    <div class="gauge__cover"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="disclaimer">Disclaimer: This is a protoype project and results may not be 100% accurate.</p>
+
+    <h1 class="about_us">About Us</h1>
+
+    <p class="about_us_container">In today's world of digital era, fake news are created to either influence people’s views,
+        push a political agenda or cause confusion and can often be a profitable business for online publishers. FakeStat is
+        an ML model which uses different algorithms to provide you best possible result whether a news is fake or not.</p>
+
+    <p>Copyright &copy; 2021. All rights Reserved</p>
+
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

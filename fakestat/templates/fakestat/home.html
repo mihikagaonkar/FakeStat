@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static '/css/home.css' %}">
+    <link rel="icon" href="./f804f2df02e24c519ea2f41b4038b03d2.png">
+    <script src="https://kit.fontawesome.com/622c95e3fd.js" crossorigin="anonymous"></script>
+    <title>FakeStat</title>
+</head>
+<body>
+  <img src= "{% static '/images/logo.png' %}" class="logo">
+
+  <!-- <div class="news_headlines_container">
+    <marquee class="trending">TRENDING....</marquee>
+    <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;width:325px;background-color:; border:1px solid #333333;">
+      <div id="rsswidget" style="height:500px;">
+        <iframe class="iframe" src="http://us1.rssfeedwidget.com/getrss.php?time=1619381406735&amp;x=https%3A%2F%2Fnews.google.com%2Frss%2Ftopics%2FCAAqIQgKIhtDQkFTRGdvSUwyMHZNRE55YXpBU0FtVnVLQUFQAQ%3Fhl%3Den-IN%26gl%3DIN%26ceid%3DIN%3Aen&amp;w=200&amp;h=500&amp;bc=333333&amp;bw=1&amp;bgc=transparent&amp;m=5&amp;it=false&amp;t=ok&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=false&amp;id=true&amp;dc=333333&amp;ds=14&amp;idt=false&amp;dtc=284F2D&amp;dts=12" border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="border:0; padding:0; margin:0; width:325px; height:500px;" id="rssOutput">Reading RSS Feed ...</iframe>
+      </div>
+      
+    </div>
+  </div> -->
+
+    <div class="news_headlines_container">
+      <marquee class="trending">TRENDING....</marquee>
+      <div class="menu">
+        {% for news in news_list %}
+        <li class="item" id="profile">
+          <a href="{{ news.link }}" class="button">
+            {{ news.title }}<i class="fas fa-angle-right"></i></a>
+        </li>
+        {% endfor %}
+      </div>
+    </div>
+
+    <form class="news_container" action="" method="POST">
+      {% csrf_token %}
+      <textarea type="text" class="news" name = "news_input" id='news' placeholder="Start typing the news here...." required></textarea>
+
+    <button type="submit" class="btn">DETECT</button>
+
+    </form>
+
+    <h1 class="about_us">About Us</h1>
+
+    <p class="about_us_container">In today's world of digital era, fake news are created to either influence people’s views, push a political agenda or cause confusion and can often be a profitable business for online publishers. FakeStat is an ML model which uses different algorithms to provide you best possible result whether a news is fake or not.</p>
+
+    <p>Copyright &copy; 2021. All rights Reserved</p>
+
+    <script src="{% static '/js/home.js' %}"></script>
+</body>
+</html>
+
+<!-- <button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myText").required;
+  document.getElementById("demo").innerHTML = x;
+}
+</script> -->
